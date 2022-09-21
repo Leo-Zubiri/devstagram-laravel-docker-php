@@ -110,6 +110,8 @@ Alternativa:
 
 ---
 
+# **Laravel sin docker**
+
 ## **Instalar composer**
 1. Descargar el instalador [Aquí>>>](https://getcomposer.org/)
 2. La ruta de instalación debe apuntar al php.exe de la versión que se usa.
@@ -123,3 +125,42 @@ Alternativa:
 ## **Crear proyecto nuevo con composer**
 Desde powershell en la ruta deseada ejecutar
 ```composer create-project laravel/laravel myapp```
+
+> La desventaja de crear un proyecto con solo composer es que no todos los servicios estarán directamente instalados como lo sería usar laravel en docker.
+
+---
+
+## **Conectar proyecto a BDD**
+Desde table plus se crea una conexión a MySQL y posteriormente se crea una base de datos:
+
+![](documentation/img/4.0.png)
+
+![](documentation/img/4.1.png)
+
+Posteriormente para enlazar la base de datos se debe editar el archivo **.env** con los datos correspondientes de la bdd:
+
+![](documentation/img/4.2.png)
+
+
+
+## **Ejecutar el proyecto**
+1. En la ruta del proyecto ejecutar en una terminal:
+    ```php artisan serve```
+2. Acceder al localhost segun indica la terminal
+
+## Verificar la conexion con la BDD
+```php artisan migrate```
+
+## Retornar los cambios de la migración
+```php artisan migrate:rollback```
+
+---
+
+# **SAIL**
+> Laravel utiliza docker en las versiones mas recientes. Sail es un CLI para comunicar, interactuar con archivos de docker, arrancar servicios, llamar artisan o instalar dependencias de npm.
+
+Con docker un ejemplo sería: **sail php -v** y en caso de usar solo composer **php -v**
+
+---
+
+# **POO en PHP**
