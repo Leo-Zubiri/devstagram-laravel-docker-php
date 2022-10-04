@@ -163,4 +163,16 @@ Con docker un ejemplo sería: **sail php -v** y en caso de usar solo composer **
 
 ---
 
-# **POO en PHP**
+# **Directorios**
+
+Directorios más comunes en el desarrollo.
+- App. Http/controllers
+- App. Models
+- database
+- public. Imagenes, Hojas de estilo y js una vez que son compilados.
+- resources. Css y js nativos de laravel y despues se le agregan los que hay en public al compilar.
+- resources / views. MVC
+- routes. Enrutamiento, api, etc.
+- storage. Archivos se suben al servidor.
+- vendor. Las dependencias de composer y modulos agregados se añaden a esta carpeta.
+- .env - Configuraciones de la base de datos y sus conexiones entre otras configuraciones del environment.
