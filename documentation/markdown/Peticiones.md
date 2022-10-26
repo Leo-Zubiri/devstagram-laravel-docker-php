@@ -16,12 +16,13 @@ Route::post('/crear-cuenta', [RegisterController::class,'store'])->name('registe
 
 El método en el controlador
 ```php
-public function store(){
-    dd('POST');
+public function store(Request $request){
+    // Despliega el dato username que viene del formulario
+    dd($request->get('username'));
 }
 ```
 
-El forma debe apuntar a la ruta:
+El form debe apuntar a la ruta:
 ```PHP
 <form action="{{ route('register') }}" method="POST">
     @csrf  //Para evitar ataques Cross Site Request Forgery (CSRF)
