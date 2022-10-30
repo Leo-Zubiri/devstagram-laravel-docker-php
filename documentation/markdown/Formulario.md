@@ -1,6 +1,6 @@
 # Validar envío formulario
 
-![Mas sobre las validaciones](https://laravel.com/docs/9.x/validation)
+[Mas sobre las validaciones](https://laravel.com/docs/9.x/validation)
 
 El post del formulario debe tener la validación en su controller:
 
@@ -9,6 +9,12 @@ public function store(Request $request){
     // Validacion
     $this->validate($request,[
         'name' => 'required|min:5' // o bien ['required','min:5']
+
+        // El username no debe existir en la bdd
+        'username' => 'required|unique:users|min:3|max:30',
+
+        'email' => 'required|unique:users|email|max:60',
+
     ]);
 }
 ```
