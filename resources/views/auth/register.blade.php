@@ -30,7 +30,7 @@
                             border-red-500
                         @enderror
                         "
-                        value={{old('name')}}
+                        value="{{ old('name') }}"
                     />
 
                     @error('name')
@@ -51,14 +51,18 @@
                         name="username"
                         type="text"
                         placeholder="Tu Nombre de usuario"
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg
+                        @error('username')
+                            border-red-500
+                        @enderror"
+                        value="{{ old('username') }}"
                     />
 
                     @error('username')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center uppercase">
                         {{ $message }}
                     </p>
-                @enderror
+                    @enderror
                 </div>
 
                 <div class="mb-5">
@@ -72,7 +76,11 @@
                         name="email"
                         type="email"
                         placeholder="Tu Email de registro"
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg
+                        @error('email')
+                            border-red-500
+                        @enderror"
+                        value="{{ old('email') }}"
                     />
 
                     @error('email')
@@ -93,7 +101,10 @@
                         name="password"
                         type="password"
                         placeholder="Password de inicio de sesión"
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg
+                        @error('password')
+                            border-red-500
+                        @enderror"
                     />
 
                     @error('password')

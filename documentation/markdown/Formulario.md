@@ -60,3 +60,53 @@ Dentro del formulario crear una directiva:
     //Buscar y editar por español
     'locale' => 'es',
 ```
+
+---
+
+## **PASSWORD y PASSWORD CONFIRMED**
+
+**Por defecto el campo debe llamarse password_confirmation**
+
+```PHP
+<input
+   id="password"
+   name="password"
+   type="password"
+   placeholder="Password de inicio de sesión"
+   class="border p-3 w-full rounded-lg
+   @error('password')
+       border-red-500
+   @enderror"
+/>
+
+@error('password')
+<p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center uppercase">
+   {{ $message }}
+</p>
+@enderror
+
+
+...
+
+
+<input
+   id="password_confirmation"
+   name="password_confirmation"
+   type="password"
+   placeholder="Repite tu password"
+   class="border p-3 w-full rounded-lg"
+/>
+```
+
+**Para validar solo se valida el campo password:**
+
+```php
+public function store(Request $request){
+  // Validacion
+  $this->validate($request,[
+      'password' => 'required|confirmed|min:6'
+  ]);
+}
+```
+
+**Lo anterior comprueba con el confirmed y manda el mensaje correspondiente**
