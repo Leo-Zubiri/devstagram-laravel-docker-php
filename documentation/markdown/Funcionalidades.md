@@ -53,3 +53,16 @@ auth()->attempt($request->only('email','password'));
 //Visualizar esa autenticacion
 dd(auth()->user());
 ```
+
+## Proteger rutas con autenticación
+
+```php
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index() {
+        return view('dashboard');
+    } 
+```
