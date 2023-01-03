@@ -35,3 +35,33 @@ Y desde el archivo donde se importa el layout se utiliza **@section**:
     Título de la página
 @endsection
 ```
+
+---
+
+## Rutas Dinámicas
+
+Route Model Binding
+
+```Rutas relacionadas a los modelos```
+
+```php
+// /{modelo:atributoDB}
+Route::get('/{user:username}',[PostController::class,'index'])->name('posts.index');
+```
+
+> Lo anterior hace que la url sea personalizada **/nombreUsuario**
+
+```php
+// Enviar informacion a la vista
+
+public function index(User $user) {
+    return view('dashboard',[
+        'user' => $user
+    ]);
+}
+
+// Recibir la informacion desde la vista
+<div>
+    <p> {{ $user->username }}</p>
+</div>
+```

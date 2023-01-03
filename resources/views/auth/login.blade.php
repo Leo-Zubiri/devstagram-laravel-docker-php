@@ -71,6 +71,13 @@
                 </div>
 
 
+                <div class="mb-5 ">
+                    <input type="checkbox" name="remember">
+                    <label class="mb-2 text-gray-500 text-sm" >
+                        Mantener mi sesión abierta
+                    </label>
+                </div>
+
                 <input type="submit" 
                     value="Iniciar sesión"
                     class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer 
