@@ -26,8 +26,10 @@
                     </svg>
                 </a>
 
-                <a class="font-bold uppercase text-gray-600 text-sm mr-1" href="#">
-                    Hola: <span class="font-normal">{{auth()->user()->username}}</span>
+                <a class="font-bold uppercase text-gray-600 text-sm mr-1" 
+                   href="{{ route('posts.index',auth()->user()->username) }}">
+                    Hola: 
+                <span class="font-normal">{{auth()->user()->username}}</span>
                 </a>
 
                 <form method='POST' action="{{ route('logout') }}">
