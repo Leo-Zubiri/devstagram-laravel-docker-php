@@ -16,6 +16,16 @@
 
             @auth
             <nav class="flex gap-2 items-center">
+                
+                <a class="flex items-center gap-2 bg-white border p-2 text-gray-600 rounded text-sm uppercase font-bold cursor-pointer"
+                    href="{{ route('posts.create') }}"
+                >
+                    Crear
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                </a>
+
                 <a class="font-bold uppercase text-gray-600 text-sm mr-1" href="#">
                     Hola: <span class="font-normal">{{auth()->user()->username}}</span>
                 </a>
