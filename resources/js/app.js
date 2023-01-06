@@ -11,3 +11,18 @@ const dropzone = new Dropzone("#dropzone",{
     uploadMultiple: false
 })
 
+dropzone.on("sending", function(file,xhr,formData){
+    console.log(file)
+});
+
+dropzone.on("success", (file,response) => { 
+    console.log(response);
+});
+
+dropzone.on("error", (file,message) => { 
+    console.log(message);
+});
+
+dropzone.on("removedfile", (file,message) => { 
+    console.log("Archivo eliminado");
+});

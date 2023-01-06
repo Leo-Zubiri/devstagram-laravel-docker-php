@@ -58,6 +58,7 @@ enctype="multipart/form-data"
 id="dropzone" 
 class="dropzone border-dashed border-2 w-full h-96 
 rounded flex flex-col justify-center items-center">
+@csrf
 </form>
 ```
 
@@ -68,6 +69,34 @@ rounded flex flex-col justify-center items-center">
 
 ```php
 Route::post('/imagenes',[ImagenController::class,'store'])->name('imagenes.store');
+```
 
+```php
+public function store(Request $request){
+    $imagen = $request->file('file');
 
+    return response()->json(['imagen' => $imagen->extension()]);
+}
+```
+
+# Eventos Dropzone
+
+Algunos eventos se muestran a continuación:
+
+```php
+dropzone.on("sending", function(file,xhr,formData){
+    console.log(file)
+});
+
+dropzone.on("success", (file,response) => { 
+    console.log(response);
+});
+
+dropzone.on("error", (file,message) => { 
+    console.log(message);
+});
+
+dropzone.on("removedfile", (file,message) => { 
+    console.log("Archivo eliminado");
+});
 ```
