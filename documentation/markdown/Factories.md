@@ -43,3 +43,5 @@ En caso de algun test que no funcionó como esperabamos:
 ```php artisan migrate```
 
 Se ejecuta nuevamente el factory
+
+> Lo ideal es hacer factories para la base de datos local
