@@ -8,7 +8,8 @@ use App\Models\User;
 class FollowerController extends Controller
 {
     public function store(User $user,Request $request){
-        
+        $user->followers()->attach(auth()->user()->id);
+        return back();
     }
 
     public function destroy(){
