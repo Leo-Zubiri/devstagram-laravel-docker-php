@@ -31,3 +31,12 @@ En este caso no se utiliza un create se utiliza un Attach:
     }
 
 ```
+
+Para quitar un adjunto:
+
+```php
+    public function destroy(User $user,Request $request){
+        $user->followers()->detach(auth()->user()->id);
+        return back();
+    }
+```
