@@ -69,3 +69,15 @@ public function index(User $user) {
     <p> {{ $user->username }}</p>
 </div>
 ```
+
+---
+
+# Routes with Closures
+
+En lugar de utilizar las rutas apuntando a controladores
+
+```php
+Route::get('/', function () {
+    return view('principal');
+});
+```
