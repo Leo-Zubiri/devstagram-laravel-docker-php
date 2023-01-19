@@ -35,16 +35,16 @@
                 </div>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
+                    {{ $user->followers->count()}}
                     <span class="font-normal">
-                        Seguidores
+                        @choice('Seguidor|Seguidores',$user->followers->count())
                     </span>
                 </p>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
+                    {{ $user->followings->count()}}
                     <span class="font-normal">
-                        Siguiendo
+                       Siguiendo
                     </span>
                 </p>
 
