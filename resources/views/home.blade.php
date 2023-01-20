@@ -5,9 +5,19 @@
 @endsection
 
 @section('contenido')
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
     @forelse ($posts as $post)
-        <h1> {{ $post->titulo }} </h1>
+        <div>
+            <a href="{{route('posts.show',['post'=>$post, 'user'=>$post->user])}}"
+            ><img src="{{ asset('uploads').'/'. $post->imagen }}" alt="Imagen Post {{ $post->titulo }}"></a>
+        </div>
     @empty
-        <p>No hay posts</p>
+        <p class="text-center">No hay posts</p>
     @endforelse
+
+    </div>
+    <div class="my-10">
+        {{ $posts->links('pagination::tailwind') }}
+    </div>
 @endsection

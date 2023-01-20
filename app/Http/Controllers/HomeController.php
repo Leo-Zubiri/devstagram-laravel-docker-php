@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
         // Obtener posts de followings
         $ids = auth()->user()->followings->pluck('id')->toArray();
-        $posts = Post::whereIn('user_id',$ids)->paginate(20);
+        $posts = Post::whereIn('user_id',$ids)->latest()->paginate(20);
 
         return view('home',[
             'posts' => $posts
