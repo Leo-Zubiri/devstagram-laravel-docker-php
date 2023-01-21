@@ -108,3 +108,40 @@ Desde la logica del componente
         return "dede la funcion like";
     }
 ```
+
+## Interfaces Reactivas
+
+Se debe crear una funcion mount que establece variables la primera vez que se carga el componente
+
+```php
+    public $isLiked;
+
+    public function mount($post){
+        $this->isLiked = $post->checklike(auth()->user());
+    }
+```
+Para que se vuelva reactivo se debe ir alterando esa variable a lo largo del código:
+
+```php
+    public function like(){
+        if($this->post->checkLike(auth()->user())){
+            $this->isLiked = false;
+        } else {
+            $this->isLiked = true;
+        }
+    }
+```
+Y se pueden escuchar los cambios desde la vista del componente livewire:
+
+```php
+<div>
+    <button 
+        wire:click="like"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" 
+            fill="{{ $isLiked ? "red" : "white" }}" 
+            ...
+        </svg>
+    </button>
+</div>
+```
