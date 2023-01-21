@@ -8,6 +8,7 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @stack('styles')
+    @livewireStyles
 </head>
 
 <body class="antialiased">
@@ -65,6 +66,7 @@
         Devstagram - Todos los derechos reservados {{ now()->year }}
     </footer>
 
+    @livewireScripts
 </body>
 
 </html>
