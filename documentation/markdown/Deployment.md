@@ -17,3 +17,53 @@ Para desplegar la aplicacion primero se genera la build
 ## Crear rama deployment
 
 ```git switch -c deployment```
+
+Desde el archivo AppServiceProvider para el caso del deployment se debe tratar los certificados para HTTPS
+
+```php
+    public function boot()
+    {
+        if($this->app->environment('production')){
+            URL::forceScheme('https');
+        }
+    }
+```
+
+## HTACCESS
+
+Posteriormente crear un archivo **.htacces** en la raiz del proyecto con:
+
+```php
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} !/public
+RewriteRule ^(.*)$ public/$1
+</IfModule>
+```
+> Manda al usuario a public y ahi hay otro htaccess que se encarga de mostrar las paginas al usuario
+
+
+## Procfile
+
+Se crea el archivo **Procfile** en la raiz del proyecto
+
+```php
+web: cp .env.example .env && php artisan key:generate && heroku-php-apache2
+```
+
+## Railway
+
+[Sitio aqui->>>](https://railway.app/)
+
+En este caso se proporciona a partir de la base de datos en mysql
+
+![](../img/9.1.png)
+
+Se deben ubicar las variables para la conexion de la base de datos
+
+![](../img/9.2.png)
+
+> Se exporta la data de las tablas de la base de datos local
+
+![](../img/9.3.png)
