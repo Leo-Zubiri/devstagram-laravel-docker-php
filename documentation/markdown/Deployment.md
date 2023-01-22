@@ -67,3 +67,18 @@ Se deben ubicar las variables para la conexion de la base de datos
 > Se exporta la data de las tablas de la base de datos local
 
 ![](../img/9.3.png)
+
+
+Con las credenciales de la base de datos de Railway se puede acceder desde una nueva conexion en TablePlus
+
+![](../img/9.4.png)
+
+Importar la data generada anteriormente de la base de datos
+
+![](../img/9.5png.png)
+
+Desde railway se carga el github repo:
+
+![](../img/9.6.png)
+
+![](../img/9.7.png)
